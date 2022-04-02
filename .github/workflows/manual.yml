@@ -1,9 +1,11 @@
 # This is a basic workflow that is manually triggered
 
-name: Manual workflow
+name: CI/CD workflow
 
 on:
   workflow_dispatch:
+  
+  pull_request:
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
