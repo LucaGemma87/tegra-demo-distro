@@ -27,4 +27,6 @@ jobs:
     - name: Setup jetson-xavier
       run: . ./setup-env --machine jetson-xavier-nx-devkit
     - name: Build Target
-      run: bitbake demo-image-full
+      run: |
+        cd /home/runner/work/tegra-demo-distro/tegra-demo-distro/build
+        bitbake demo-image-full
