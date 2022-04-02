@@ -19,6 +19,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     # Runs a single command using the runners shell
+    - name: Install diffstat
+      run: sudo apt-get install diffstat
     - name: Submodule Init
       run: |
         pwd
