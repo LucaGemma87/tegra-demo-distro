@@ -21,9 +21,9 @@ jobs:
     # Runs a single command using the runners shell
     - name: Submodule Init
       run: |
-      pwd
-      cd /home/runner/work/tegra-demo-distro/tegra-demo-distro
-      git submodule update --init
+        pwd
+        cd /home/runner/work/tegra-demo-distro/tegra-demo-distro
+        git submodule update --init
     - name: Setup jetson-xavier
       run: . ./setup-env --machine jetson-xavier-nx-devkit
     - name: Build Target
