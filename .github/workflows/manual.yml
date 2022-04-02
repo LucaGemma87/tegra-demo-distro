@@ -24,9 +24,8 @@ jobs:
         pwd
         cd /home/runner/work/tegra-demo-distro/tegra-demo-distro
         git submodule update --init
-    - name: Setup jetson-xavier
-      run: . ./setup-env --machine jetson-xavier-nx-devkit
-    - name: Build Target
-      run: |
-        cd /home/runner/work/tegra-demo-distro/tegra-demo-distro/build
+    - name: Setup jetson-xavier and Build target
+      run: | 
+        . ./setup-env --machine jetson-xavier-nx-devkit
         bitbake demo-image-full
+        
