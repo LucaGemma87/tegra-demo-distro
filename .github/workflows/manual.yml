@@ -1,0 +1,38 @@
+# This is a basic workflow that is manually triggered
+
+name: CI/CD workflow
+
+on:
+  workflow_dispatch:
+  
+  pull_request:
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "greet"
+  build_target:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    - uses: actions/checkout@v3
+    # Runs a single command using the runners shell
+    - name: Install diffstat
+      run: sudo apt-get install diffstat
+    - name: Submodule Init
+      run: |
+        pwd
+        cd /home/runner/work/tegra-demo-distro/tegra-demo-distro
+        git submodule update --init
+    - name: Setup jetson-xavier and Build target
+      run: | 
+        . ./setup-env --machine jetson-xavier-nx-devkit
+        bitbake demo-image-sato
+    - name: Archive build
+      uses: actions/upload-artifact@v3
+      with:
+        name: target_build
+        path: /home/runner/work/tegra-demo-distro/tegra-demo-distro/build
+        
