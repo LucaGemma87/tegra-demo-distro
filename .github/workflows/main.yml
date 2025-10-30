@@ -30,7 +30,7 @@ jobs:
         . ./setup-env --machine jetson-xavier-nx-devkit
         bitbake demo-image-sato
     - name: Archive build
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: target_build
         path: /home/runner/work/tegra-demo-distro/tegra-demo-distro/build
