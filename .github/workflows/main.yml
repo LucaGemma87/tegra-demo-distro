@@ -27,7 +27,7 @@ jobs:
         git submodule update --init
     - name: Setup jetson-xavier and Build target
       run: | 
-        . ./setup-env --machine demo-image-sato
+        . ./setup-env --machine jetson-agx-xavier-devkit
         bitbake demo-image-sato
     - name: Archive build
       uses: actions/upload-artifact@v4
